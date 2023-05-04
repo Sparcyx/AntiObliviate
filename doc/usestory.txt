@@ -1,0 +1,17 @@
+En tant qu'utilisateur, je veux m'inscrire sur le site pour créer un compte et accéder à ma liste personnelle d'animes.
+
+En tant qu'utilisateur, je veux me connecter à mon compte pour accéder à ma liste personnelle d'animes.
+
+En tant qu'utilisateur connecté, je veux voir ma liste d'animes, comprenant le titre, l'image, le nombre d'épisodes, la date de dernier visionnage et le numéro du dernier épisode visionné.
+
+En tant qu'utilisateur connecté, je veux filtrer ma liste d'animes par date d'ajout, date de visionnage du dernier épisode et catégorie (A voir en priorité, En cours de visionnage, Dès que possible, Plus tard, A revoir, Fini).
+
+En tant qu'utilisateur connecté, je veux mettre à jour le numéro du dernier épisode vu pour un anime de ma liste.
+
+En tant qu'utilisateur connecté, je veux mettre à jour la date de dernier visionnage pour un anime de ma liste (par défaut la date du jour).
+
+En tant qu'utilisateur connecté, je veux changer la catégorie d'un anime de ma liste (par exemple, passer de "A voir en priorité" à "En cours de visionnage").
+
+En tant qu'utilisateur connecté, je veux supprimer un anime de ma liste.
+
+En tant qu'utilisateur connecté, je veux ajouter un nouvel anime à ma liste en utilisant une interface de recherche textuelle pour trouver un anime parmi les 10 résultats renvoyés par l'API (affichant le titre, la description, l'image et la popularité de chaque résultat).

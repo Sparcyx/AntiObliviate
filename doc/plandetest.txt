@@ -1,0 +1,43 @@
+Tests fonctionnels :
+
+Test d'inscription : Vérifier que l'utilisateur peut s'inscrire avec succès en fournissant un nom d'utilisateur, une adresse e-mail et un mot de passe valides.
+
+Test de connexion : Vérifier que l'utilisateur peut se connecter avec succès en fournissant un nom d'utilisateur et un mot de passe valides.
+
+Test d'affichage de la liste d'animes : Vérifier que la liste d'animes de l'utilisateur connecté s'affiche correctement avec les informations pertinentes
+ (titre, image, nombre d'épisodes, date de dernier visionnage et numéro du dernier épisode visionné).
+
+Test de filtrage de la liste d'animes : Vérifier que la liste d'animes peut être filtrée avec succès en fonction des critères sélectionnés 
+(date d'ajout, date de visionnage du dernier épisode, catégorie).
+
+Test de mise à jour du dernier épisode vu : Vérifier que l'utilisateur peut mettre à jour le numéro du dernier épisode vu pour un anime de sa liste avec succès.
+
+Test de mise à jour de la date de dernier visionnage : Vérifier que l'utilisateur peut mettre à jour la date de dernier visionnage pour un anime de sa liste avec succès.
+
+Test de changement de catégorie : Vérifier que l'utilisateur peut changer la catégorie d'un anime de sa liste avec succès.
+
+Test de suppression d'un anime : Vérifier que l'utilisateur peut supprimer un anime de sa liste avec succès.
+
+Test d'ajout d'un nouvel anime : Vérifier que l'utilisateur peut ajouter un nouvel anime à sa liste avec succès en utilisant l'interface de 
+recherche textuelle et en sélectionnant un résultat parmi les 10 renvoyés par l'API.
+
+Tests unitaires :
+
+Test de validation du formulaire d'inscription : Vérifier que le formulaire d'inscription valide correctement les champs 
+(nom d'utilisateur, adresse e-mail, mot de passe) et affiche les erreurs appropriées en cas d'entrées invalides.
+
+Test de validation du formulaire de connexion : Vérifier que le formulaire de connexion valide correctement les champs 
+(nom d'utilisateur, mot de passe) et affiche les erreurs appropriées en cas d'entrées invalides.
+
+Test de la fonction de filtrage : Vérifier que la fonction de filtrage renvoie correctement les animes filtrés en fonction des critères sélectionnés 
+(date d'ajout, date de visionnage du dernier épisode, catégorie).
+
+Test de la fonction d'ajout d'un anime : Vérifier que la fonction d'ajout d'un anime ajoute correctement un nouvel anime à la liste de l'utilisateur connecté.
+
+Test de la fonction de mise à jour du dernier épisode vu : Vérifier que la fonction de mise à jour du dernier épisode vu met à jour correctement 
+le numéro du dernier épisode visionné pour un anime de la liste.
+
+Test de la fonction de mise à jour de la date de dernier visionnage : Vérifier que la fonction de mise à jour de la date de dernier 
+visionnage met à jour correctement la date de dernier visionnage pour un anime de la liste.
+
+Test de la fonction de changement de catégorie : Vérifier que la fonction de changement de catégorie met à jour correctement la catégorie d'un anime de la liste.
