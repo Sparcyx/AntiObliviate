@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Relation avec la table user_anime
+    public function animes()
+    {
+        return $this->belongsToMany(Anime::class, 'user_anime')->withTimestamps();
+    }
 }

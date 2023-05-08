@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('dernier_episode_vu');
             $table->date('date_visionnage');
             $table->date('date_ajout');
+            $table->unsignedBigInteger('anime_id');
+            $table->foreign('anime_id')->references('id')->on('animes');
             $table->unsignedBigInteger('categorie_id');
             $table->foreign('categorie_id')->references('id')->on('categories');
             $table->timestamps();

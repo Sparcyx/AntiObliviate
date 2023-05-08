@@ -12,31 +12,29 @@
                 <img class="w-full h-auto object-cover" src="{{ $anime->main_picture->medium }}" alt="{{ $anime->title }}">
             </div>
             <div class="w-full md:w-1/2">
-                <h2 class="text-2xl font-bold mb-2">Synopsis</h2>
-                <p class="text-gray-700 mb-4">{{ $anime->synopsis }}</p>
-                <div class="mb-4">
-                    <span class="font-semibold">Episodes: </span>{{ $anime->num_episodes }}
-                </div>
-                <div class="mb-4">
-                    <span class="font-semibold">Popularity: </span>{{ $anime->popularity }}
-                </div>
-                <div class="mb-4">
-                    <span class="font-semibold">Alternative titles: </span>
-                    <ul>
-                        @if (isset($anime->alternative_titles->synonyms))
-                        @foreach ($anime->alternative_titles->synonyms as $synonym)
-                        <li>Synonym: {{ $synonym }}</li>
-                        @endforeach
-                        @endif
-                        @if (isset($anime->alternative_titles->en))
-                        <li>English: {{ $anime->alternative_titles->en }}</li>
-                        @endif
-                        @if (isset($anime->alternative_titles->ja))
-                        <li>Japanese: {{ $anime->alternative_titles->ja }}</li>
-                        @endif
-                    </ul>
-                </div>
+                <!-- ... -->
             </div>
+        </div>
+
+        <div class="mt-8">
+            @if($anime->users->contains(Auth::user()->id))
+                <h2 class="text-2xl font-bold mb-2">Modifier la fiche</h2>
+                <form action="{{ route('fiche_anime.update', $anime->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    
+                </form>
+                <form action="{{ route('supprimer_anime_route', ['id' => $anime->id]) }}" method="POST" class="mt-2">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Supprimer de la liste</button>
+                </form>
+            @else
+                <form action="{{ route('ajouter_anime_route', ['id' => $anime->id]) }}" method="POST">
+                    @csrf
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ajouter à ma liste</button>
+                </form>
+            @endif
         </div>
     </div>
 </x-app-layout>
