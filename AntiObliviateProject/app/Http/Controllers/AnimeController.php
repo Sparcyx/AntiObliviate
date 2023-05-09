@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Anime;
 use App\Models\FicheAnime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
@@ -28,8 +29,8 @@ class AnimeController extends Controller
             $anime = new Anime();
             $anime->id = $id;
             $anime->titre = $animeData->title;
-            $anime->nombre_depisodes = $animeData->num_episodes; // Assurez-vous que cette propriété existe dans les données de l'API
-            $anime->url_image = $animeData->main_picture->medium; // Assurez-vous que cette propriété existe dans les données de l'API
+            $anime->nombre_depisodes = $animeData->num_episodes;
+            $anime->url_image = $animeData->main_picture->medium;
             $anime->idAPI = $id;
             $anime->save();
         }
@@ -38,7 +39,7 @@ class AnimeController extends Controller
         $ficheAnime->dernier_episode_vu = 0;
         $ficheAnime->date_visionnage = now();
         $ficheAnime->date_ajout = now();
-        $ficheAnime->categorie_id = 1; // Vous pouvez mettre une valeur par défaut ou la récupérer à partir d'une entrée utilisateur.
+        $ficheAnime->categorie_id = 1;
         $ficheAnime->anime_id = $anime->id;
         $ficheAnime->save();
 
@@ -64,7 +65,13 @@ class AnimeController extends Controller
     public function supprimer_anime_route($id)
     {
         $user = Auth::user();
+    
+        // Detach the anime from the user
         $user->animes()->detach($id);
+    
+        // Delete the fiche_anime
+        FicheAnime::where('anime_id', $id)->delete();
+    
         return redirect()->back()->with('success', 'Anime supprimé de la liste.');
     }
 }

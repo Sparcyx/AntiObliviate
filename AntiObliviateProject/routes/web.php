@@ -35,7 +35,7 @@ Route::get('/personal', [AnimeController::class, 'myAnimeList'])->middleware(['a
 Route::get('/search-animes', [DashboardController::class, 'searchAnimes'])->name('searchAnimes');
 Route::get('/anime/{id}', [FicheAnimeController::class, 'show'])->middleware(['auth'])->name('anime.show');
 
-Route::put('/fiche_anime/{id}', 'FicheAnimeController@update')->name('fiche_anime.update');
+Route::put('/fiche_anime/{id}', [FicheAnimeController::class, 'update'])->name('fiche_anime.update');
 
 Route::post('/animes/{id}/ajouter', [AnimeController::class, 'ajouterALaListe'])->name('ajouter_anime_route');
 

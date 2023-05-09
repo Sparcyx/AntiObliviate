@@ -27,4 +27,11 @@ class Anime extends Model
 
         return view('animes.index', compact('animes'));
     }
+
+    public function ficheAnimes()
+    {
+        return $this->hasMany(FicheAnime::class);
+    }
+
+    //
 }
