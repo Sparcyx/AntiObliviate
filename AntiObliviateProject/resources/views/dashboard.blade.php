@@ -15,24 +15,12 @@
                         <label class="inline-flex items-center">
                             <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 transition duration-150 ease-in-out" name="order[]" value="alphabetical">
                         </label>
-                        <span class="ml-2 text-gray-700">Ordre alphabétique</span>
-                    </label>
-                    <label for="last_watched" class="inline-flex items-center mr-4">
-                        <label class="inline-flex items-center">
-                        <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 transition duration-150 ease-in-out" name="order[]" value="last_watched">
-                        </label>
-                        <span class="ml-2 text-gray-700">Dernier épisode visionné</span>
-                    </label>
-                    <label for="category" class="inline-flex items-center">
-                        <label class="inline-flex items-center">
-                        <input type="checkbox" class="form-checkbox h-4 w-4 text-green-500 transition duration-150 ease-in-out" name="order[]" value="category">
-                        </label>
-                        <span class="ml-2 text-gray-700">Catégorie de la fiche</span>
+                        <span class="ml-2 text-gray-700">Alphabetical order</span>
                     </label>
                 </div>
                 <div class="relative w-full sm:w-auto flex items-center justify-center sm:justify-start">
                     <input type="text" id="search" name="search" class="border p-2 rounded-l mr-2 sm:mr-0 sm:rounded-r-none w-full sm:w-64" placeholder="Rechercher">
-                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r sm:rounded-l-none mt-4 sm:mt-0">Filtrer</button>
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r sm:rounded-l-none mt-4 sm:mt-0">Filter</button>
                 </div>
             </form>
         </div>

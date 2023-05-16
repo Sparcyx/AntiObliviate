@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+use App\Models\AnimeRecord;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use App\Http\Requests\ProfileUpdateRequest;
 
 class ProfileController extends Controller
 {
@@ -47,6 +48,12 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
+
+        // Supprimer d'abord les relations anime de l'utilisateur dans la table 'anime_records'
+        $user->animes()->detach();
+
+        // Supprimer les enregistrements d'anime associés à l'utilisateur
+        AnimeRecord::where('user_id', $user->id)->delete();
 
         Auth::logout();
 

@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class FicheAnime extends Model
+class AnimeRecord extends Model
 {
-    protected $table = 'fiche_animes';
+    protected $table = 'anime_records';
     protected $fillable = ['dernier_episode_vu', 'date_visionnage', 'date_ajout', 'categorie_id'];
 
     // Relation avec la table categories
     public function category()
     {
-        return $this->belongsTo(Category::class, 'categorie_id');
+        return $this->belongsTo(Category::class, 'category_id');
     }
 }

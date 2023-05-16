@@ -14,45 +14,45 @@
                 <div class="w-full sm:w-1/2 md:w-2/3 lg:w-3/4 pl-8">
                     <h1 class="text-3xl font-bold mb-4">{{ $anime->title }}</h1>
                     <p class="text-lg mb-2">{{ $anime->synopsis }}</p>
-                    <p class="text-sm mb-1"><strong>Nombre d'épisodes :</strong> {{ $anime->num_episodes }}</p>
-                    <p class="text-sm"><strong>Popularité :</strong> {{ $anime->popularity }}</p>
+                    <p class="text-sm mb-1"><strong>Number of episodes :</strong> {{ $anime->num_episodes }}</p>
+                    <p class="text-sm"><strong>Popularity :</strong> {{ $anime->popularity }}</p>
                 </div>
             </div>
         </div>
 
         <div class="mt-8">
             @if($animeInUserList)
-            <h2 class="text-2xl font-bold mb-4">Modifier la fiche</h2>
-            <form action="{{ route('fiche_anime.update', $anime->id) }}" method="POST" class="bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4">Edit record</h2>
+            <form action="{{ route('anime.update', $anime->id) }}" method="POST" class="bg-white shadow-md rounded-lg p-6">
                 @csrf
                 @method('PUT')
                 <div class="mb-4">
-                    <label for="date_visionnage" class="block mb-1 text-sm font-bold">Date de visionnage</label>
-                    <input type="date" name="date_visionnage" id="date_visionnage" class="w-full border rounded-lg p-2" value="{{ $ficheAnime->date_visionnage }}">
+                    <label for="watch_date" class="block mb-1 text-sm font-bold">Viewing date</label>
+                    <input type="date" name="watch_date" id="watch_date" class="w-full border rounded-lg p-2" value="{{ $AnimeRecord->watch_date }}">
                 </div>
                 <div class="mb-4">
-                    <label for="dernier_episode_vu" class="block mb-1 text-sm font-bold">Dernier épisode vu</label>
-                    <input type="number" name="dernier_episode_vu" id="dernier_episode_vu" class="w-full border rounded-lg p-2" value="{{ $ficheAnime->dernier_episode_vu }}">
+                    <label for="last_episode_watched" class="block mb-1 text-sm font-bold">Last episode seen</label>
+                    <input type="number" name="last_episode_watched" id="last_episode_watched" class="w-full border rounded-lg p-2" value="{{ $AnimeRecord->last_episode_watched }}">
                 </div>
                 <div class="mb-4">
-                    <label for="categorie" class="block mb-1 text-sm font-bold">Catégorie</label>
-                    <select name="categorie" id="categorie" class="w-full border rounded-lg p-2">
+                    <label for="categorie" class="block mb-1 text-sm font-bold">Category</label>
+                    <select name="category_id" id="categorie" class="w-full border rounded-lg p-2">
                         @foreach($categories as $category)
-                        <option value="{{ $category->id }}" {{ $ficheAnime->categorie_id == $category->id ? 'selected' : '' }}>{{ $category->titre }}</option>
+                        <option value="{{ $category->id }}" {{ $AnimeRecord->category_id == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
                         @endforeach
                     </select>
                 </div>
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Enregistrer les modifications</button>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Save Changes</button>
             </form>
-            <form action="{{ route('supprimer_anime_route', ['id' => $anime->id]) }}" method="POST" class="mt-2">
+            <form action="{{ route('anime.destroy', ['id' => $anime->id]) }}" method="POST" class="mt-4">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Supprimer de la liste</button>
+                <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Remove from list</button>
             </form>
             @else
-            <form action="{{ route('ajouter_anime_route', ['id' => $anime->id]) }}" method="POST">
+            <form action="{{ route('anime.add', ['id' => $anime->id]) }}" method="POST">
                 @csrf
-                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Ajouter à ma liste</button>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add to my list</button>
             </form>
             @endif
         </div>

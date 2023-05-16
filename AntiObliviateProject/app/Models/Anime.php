@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Anime extends Model
 {
     protected $table = 'animes';
-    protected $fillable = ['titre', 'nombre_depisodes', 'url_image', 'idAPI'];
+    protected $fillable = ['title', 'number_of_episodes', 'image_url', 'api_id'];
 
     // Relation avec la table user_anime
     public function users()
@@ -15,23 +15,9 @@ class Anime extends Model
         return $this->belongsToMany(User::class, 'user_anime');
     }
 
-    public function fiche()
+    // Relation avec la table anime_records
+    public function animeRecords()
     {
-        return $this->hasOne(FicheAnime::class);
+        return $this->hasMany(AnimeRecord::class);
     }
-
-    public function getAnimesByCategory($categoryName)
-    {
-        $category = Category::where('name', $categoryName)->first();
-        $animes = Anime::where('category_id', $category->id)->get();
-
-        return view('animes.index', compact('animes'));
-    }
-
-    public function ficheAnimes()
-    {
-        return $this->hasMany(FicheAnime::class);
-    }
-
-    //
 }
